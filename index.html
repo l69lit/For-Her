@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Shivani 💖</title>
+
+<style>
+* {margin:0; padding:0; box-sizing:border-box;}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #0f1020, #1b1f3b, #2b1633);
+  color: white;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+/* Sections */
+section { padding: 80px 20px; }
+
+/* Titles */
+h1 { font-size: 42px; margin-bottom: 10px; }
+h2 { font-size: 28px; margin-bottom: 20px; }
+
+/* Cards */
+.card {
+  background: rgba(255,255,255,0.1);
+  padding: 20px;
+  margin: 15px auto;
+  border-radius: 15px;
+  max-width: 500px;
+}
+
+/* Buttons */
+.btn {
+  padding: 12px 22px;
+  margin: 10px;
+  border: none;
+  border-radius: 25px;
+  background: #ff4da6;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+  background: #ff1a8c;
+}
+
+/* Music block */
+.music-box {
+  margin-top: 20px;
+}
+
+#musicBtn {
+  box-shadow: 0 0 15px rgba(255, 77, 166, 0.5);
+}
+
+.music-status {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* Shayari */
+#shayariBox {
+  opacity: 0;
+  transition: 0.5s;
+  margin-top: 20px;
+}
+
+/* Hearts */
+.heart {
+  position: fixed;
+  bottom: -10px;
+  animation: float 6s linear infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); opacity:1;}
+  100% { transform: translateY(-100vh); opacity:0;}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section>
+  <h1>Hey Shivani 💖</h1>
+  <p>You became special without even trying.</p>
+
+  <!-- MUSIC BLOCK -->
+  <div class="music-box">
+    <button class="btn" onclick="toggleMusic()" id="musicBtn">🎵 Play Music</button>
+    <p class="music-status" id="musicStatus">Tap to play something for you</p>
+  </div>
+</section>
+
+<!-- SPECIAL -->
+<section>
+  <h2>Why You Are Special ✨</h2>
+
+  <div class="card">You listen when no one does.</div>
+  <div class="card">You support me in ways that matter.</div>
+  <div class="card">You make things feel lighter.</div>
+</section>
+
+<!-- MEMORY -->
+<section>
+  <h2>A Memory 🌸</h2>
+
+  <div class="card">
+    That 6 a.m good morning message…<br><br>
+    It was simple, but it felt different.<br>
+    And somehow… special.
+  </div>
+</section>
+
+<!-- MESSAGE -->
+<section>
+  <h2>A Note For You 💌</h2>
+
+  <div class="card">
+    Thank you for being there.<br>
+    Thank you for being you.
+  </div>
+
+  <div class="card">
+    You matter more than you realize.
+  </div>
+
+  <!-- SHAYARI -->
+  <button class="btn" onclick="showShayari()">📜 A Small Shayari</button>
+
+  <div id="shayariBox">
+    <p>
+      Teri baaton mein sukoon sa milta hai,<br>
+      tera saath dil ko halka sa lagta hai.<br>
+      Tu bas aise hi muskurati rehna,<br>
+      kyunki tera khush rehna sabse achha lagta hai 💖
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<section>
+  <p>— Lalit</p>
+</section>
+
+<!-- AUDIO -->
+<audio id="bgMusic" loop>
+  <source src="darkhaast.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const music = document.getElementById("bgMusic");
+const btn = document.getElementById("musicBtn");
+const status = document.getElementById("musicStatus");
+
+music.volume = 0.35;
+
+// play/pause toggle
+function toggleMusic() {
+  if (music.paused) {
+    music.play();
+    btn.innerText = "⏸ Pause Music";
+    status.innerText = "Now playing Darkhaast 🎵";
+  } else {
+    music.pause();
+    btn.innerText = "🎵 Play Music";
+    status.innerText = "Music paused";
+  }
+}
+
+// shayari
+function showShayari() {
+  document.getElementById("shayariBox").style.opacity = 1;
+}
+
+// hearts animation
+setInterval(() => {
+  let heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML = "💖";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (10 + Math.random()*20) + "px";
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 6000);
+}, 300);
+</script>
+
+</body>
+</html>
