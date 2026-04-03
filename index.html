@@ -3,194 +3,363 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Shivani 💖</title>
+<title>For Shivani ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-* {margin:0; padding:0; box-sizing:border-box;}
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
 
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #0f1020, #1b1f3b, #2b1633);
-  color: white;
-  text-align: center;
-  overflow-x: hidden;
+body{
+  font-family:'Poppins',sans-serif;
+  background: radial-gradient(circle at top right,#ff4e88 0%,transparent 30%),
+              radial-gradient(circle at bottom left,#7b5cff 0%,transparent 30%),
+              linear-gradient(135deg,#0a0a23,#1a1a3d,#0f0c29);
+  color:#fff;
+  overflow-x:hidden;
 }
 
-/* Sections */
-section { padding: 80px 20px; }
+/* glow */
+body::before, body::after{
+  content:"";
+  position:fixed;
+  width:400px;height:400px;
+  filter:blur(120px);
+  z-index:-1;
+}
+body::before{background:#ff5ea8;top:-100px;right:-100px;}
+body::after{background:#7b5cff;bottom:-100px;left:-100px;}
 
-/* Titles */
-h1 { font-size: 42px; margin-bottom: 10px; }
-h2 { font-size: 28px; margin-bottom: 20px; }
-
-/* Cards */
-.card {
-  background: rgba(255,255,255,0.1);
-  padding: 20px;
-  margin: 15px auto;
-  border-radius: 15px;
-  max-width: 500px;
+/* hearts */
+.heart{
+  position:fixed;
+  bottom:-50px;
+  color:#ff9ecb;
+  animation:floatUp linear infinite;
+}
+@keyframes floatUp{
+  to{transform:translateY(-110vh);opacity:0;}
 }
 
-/* Buttons */
-.btn {
-  padding: 12px 22px;
-  margin: 10px;
-  border: none;
-  border-radius: 25px;
-  background: #ff4da6;
-  color: white;
-  cursor: pointer;
-  transition: 0.3s;
+/* layout */
+section{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:40px;
 }
 
-.btn:hover {
-  transform: scale(1.1);
-  background: #ff1a8c;
+.glass{
+  max-width:900px;
+  width:100%;
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(20px);
+  padding:35px;
+  border-radius:25px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.5);
+  border:1px solid rgba(255,255,255,0.15);
 }
 
-/* Music block */
-.music-box {
-  margin-top: 20px;
+/* headings */
+h1{
+  text-align:center;
+  font-size:2.8rem;
+  color:#ffd6e8;
+  text-shadow:0 0 20px rgba(255,94,168,0.7);
+}
+h2{
+  text-align:center;
+  margin-bottom:15px;
+  color:#ffd6e8;
 }
 
-#musicBtn {
-  box-shadow: 0 0 15px rgba(255, 77, 166, 0.5);
+p{
+  text-align:center;
+  line-height:1.8;
+  margin-top:10px;
 }
 
-.music-status {
-  font-size: 14px;
-  opacity: 0.8;
+/* typing */
+.typing{
+  margin-top:20px;
+  min-height:120px;
+  white-space:pre-line;
+}
+.cursor{
+  display:inline-block;
+  width:2px;
+  background:#fff;
+  animation:blink 1s infinite;
+}
+@keyframes blink{50%{opacity:0;}}
+
+/* music */
+.music{
+  margin-top:25px;
+  text-align:center;
+}
+button{
+  background:linear-gradient(135deg,#ff5ea8,#ff8cc6);
+  border:none;
+  padding:12px 25px;
+  border-radius:30px;
+  color:white;
+  cursor:pointer;
+  font-weight:600;
+  box-shadow:0 10px 30px rgba(255,94,168,0.5);
+}
+button:hover{
+  transform:scale(1.08);
 }
 
-/* Shayari */
-#shayariBox {
-  opacity: 0;
-  transition: 0.5s;
-  margin-top: 20px;
+input[type=range]{
+  width:220px;
+  margin-top:10px;
 }
 
-/* Hearts */
-.heart {
-  position: fixed;
-  bottom: -10px;
-  animation: float 6s linear infinite;
+.time{
+  font-size:0.9rem;
+  margin-top:5px;
+  color:#ddd;
 }
 
-@keyframes float {
-  0% { transform: translateY(0); opacity:1;}
-  100% { transform: translateY(-100vh); opacity:0;}
+/* cards */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:15px;
+  margin-top:20px;
 }
 
+.card{
+  background:rgba(255,255,255,0.06);
+  padding:20px;
+  border-radius:15px;
+  text-align:center;
+  transition:0.3s;
+}
+.card:hover{
+  transform:translateY(-5px);
+}
+.hidden{display:none;}
+
+/* nav */
+.nav{
+  position:fixed;
+  top:10px;
+  right:10px;
+  z-index:100;
+}
+.nav a{
+  margin:5px;
+  padding:8px 14px;
+  background:rgba(255,255,255,0.1);
+  border-radius:20px;
+  color:white;
+  text-decoration:none;
+  font-size:0.9rem;
+}
+
+/* shayari */
+.shayari{
+  font-style:italic;
+  font-size:1.1rem;
+  color:#ffd6e8;
+  line-height:2;
+}
+
+/* final */
+.final{
+  font-size:1.3rem;
+  color:#ffd6e8;
+  margin-top:20px;
+  text-align:center;
+}
 </style>
 </head>
 
 <body>
 
+<div class="nav">
+<a href="#hero">Home</a>
+<a href="#why">Why</a>
+<a href="#mem">Memories</a>
+<a href="#secret">Secrets</a>
+<a href="#shayari">Shayari</a>
+<a href="#end">End</a>
+</div>
+
 <!-- HERO -->
-<section>
-  <h1>Hey Shivani 💖</h1>
-  <p>You became special without even trying.</p>
+<section id="hero">
+<div class="glass">
+<h1>For Shivani ❤️</h1>
+<p>This is not just a website… it’s something I made only for you.</p>
 
-  <!-- MUSIC BLOCK -->
-  <div class="music-box">
-    <button class="btn" onclick="toggleMusic()" id="musicBtn">🎵 Play Music</button>
-    <p class="music-status" id="musicStatus">Tap to play something for you</p>
-  </div>
+<div id="typing" class="typing"></div>
+
+<div class="music">
+<div>🎵 Darkhaast - Arijit Singh</div>
+<button onclick="toggleMusic()">Play / Pause</button><br>
+
+<input type="range" id="progress" value="0">
+<div class="time" id="time">00:00 / 00:00</div>
+
+<label>Volume</label><br>
+<input type="range" id="volume" value="35">
+</div>
+
+<audio id="song" src="darkhaast.mp3"></audio>
+</div>
 </section>
 
-<!-- SPECIAL -->
-<section>
-  <h2>Why You Are Special ✨</h2>
-
-  <div class="card">You listen when no one does.</div>
-  <div class="card">You support me in ways that matter.</div>
-  <div class="card">You make things feel lighter.</div>
+<!-- WHY -->
+<section id="why">
+<div class="glass">
+<h2>Why You Matter</h2>
+<p>
+You’re not just someone I talk to.  
+You’re someone who actually listens.  
+In a world where people pretend to care,  
+you make it feel real.  
+That’s rare… and that’s why you matter.
+</p>
+</div>
 </section>
 
-<!-- MEMORY -->
-<section>
-  <h2>A Memory 🌸</h2>
-
-  <div class="card">
-    That 6 a.m good morning message…<br><br>
-    It was simple, but it felt different.<br>
-    And somehow… special.
-  </div>
+<!-- MEMORIES -->
+<section id="mem">
+<div class="glass">
+<h2>Memories</h2>
+<p>🌅 That 6AM good morning… I still remember it.</p>
+<p>💬 You listened when no one did.</p>
+<p>❤️ That’s why this exists.</p>
+</div>
 </section>
 
-<!-- MESSAGE -->
-<section>
-  <h2>A Note For You 💌</h2>
+<!-- SECRETS -->
+<section id="secret">
+<div class="glass">
+<h2>Click When You Need Me</h2>
 
-  <div class="card">
-    Thank you for being there.<br>
-    Thank you for being you.
-  </div>
+<div class="cards">
+<div class="card">
+<button onclick="toggle(0)">Sad?</button>
+<p class="hidden">You matter more than you think.</p>
+</div>
 
-  <div class="card">
-    You matter more than you realize.
-  </div>
+<div class="card">
+<button onclick="toggle(1)">Miss me?</button>
+<p class="hidden">Read this page again slowly.</p>
+</div>
 
-  <!-- SHAYARI -->
-  <button class="btn" onclick="showShayari()">📜 A Small Shayari</button>
+<div class="card">
+<button onclick="toggle(2)">Doubt?</button>
+<p class="hidden">You are stronger than your doubts.</p>
+</div>
+</div>
 
-  <div id="shayariBox">
-    <p>
-      Teri baaton mein sukoon sa milta hai,<br>
-      tera saath dil ko halka sa lagta hai.<br>
-      Tu bas aise hi muskurati rehna,<br>
-      kyunki tera khush rehna sabse achha lagta hai 💖
-    </p>
-  </div>
+</div>
 </section>
 
-<!-- FOOTER -->
-<section>
-  <p>— Lalit</p>
+<!-- SHAYARI -->
+<section id="shayari">
+<div class="glass">
+<h2>Something I Wanted To Say...</h2>
+
+<p class="shayari">
+"तुम खास हो ये बताने के लिए  
+शब्द कभी काफी नहीं होंगे…  
+बस इतना समझ लो,  
+तुम्हारा होना ही  
+किसी के दिन को बेहतर बना देता है।"
+</p>
+
+</div>
 </section>
 
-<!-- AUDIO -->
-<audio id="bgMusic" loop>
-  <source src="darkhaast.mp3" type="audio/mpeg">
-</audio>
+<!-- END -->
+<section id="end">
+<div class="glass">
+<h2>Before This Ends</h2>
+<p>This is not just a website.</p>
+<p>It’s a small piece of how much you matter.</p>
+<p class="final">I’ll always be here ❤️</p>
+</div>
+</section>
 
 <script>
-const music = document.getElementById("bgMusic");
-const btn = document.getElementById("musicBtn");
-const status = document.getElementById("musicStatus");
+// typing
+const text=[
+"Hey Shivani...",
+"I didn’t make this because I had to.",
+"I made this because you deserve something real.",
+"You listen when no one does.",
+"And that matters more than you think."
+];
+let i=0,j=0,txt="";
+function type(){
+ if(i<text.length){
+  if(j<text[i].length){
+   txt+=text[i][j++];
+   document.getElementById("typing").innerHTML=txt+"<span class='cursor'></span>";
+   setTimeout(type,40);
+  }else{txt+="\n";i++;j=0;setTimeout(type,400);}
+ }
+}
+type();
 
-music.volume = 0.35;
+// music
+const song=document.getElementById("song");
+const progress=document.getElementById("progress");
+const volume=document.getElementById("volume");
+const time=document.getElementById("time");
 
-// play/pause toggle
-function toggleMusic() {
-  if (music.paused) {
-    music.play();
-    btn.innerText = "⏸ Pause Music";
-    status.innerText = "Now playing Darkhaast 🎵";
-  } else {
-    music.pause();
-    btn.innerText = "🎵 Play Music";
-    status.innerText = "Music paused";
-  }
+song.volume=0.35;
+
+function toggleMusic(){
+ if(song.paused) song.play();
+ else song.pause();
 }
 
-// shayari
-function showShayari() {
-  document.getElementById("shayariBox").style.opacity = 1;
+volume.oninput=e=>song.volume=e.target.value/100;
+
+song.ontimeupdate=()=>{
+ if(song.duration){
+  progress.value=(song.currentTime/song.duration)*100;
+
+  let m=Math.floor(song.currentTime/60);
+  let s=Math.floor(song.currentTime%60);
+  let dm=Math.floor(song.duration/60);
+  let ds=Math.floor(song.duration%60);
+
+  if(s<10)s="0"+s;
+  if(ds<10)ds="0"+ds;
+
+  time.innerText=`${m}:${s} / ${dm}:${ds}`;
+ }
+};
+
+progress.oninput=()=>{
+ song.currentTime=(progress.value/100)*song.duration;
+};
+
+// secrets
+function toggle(i){
+ let el=document.querySelectorAll(".hidden");
+ el[i].style.display=el[i].style.display=="block"?"none":"block";
 }
 
-// hearts animation
-setInterval(() => {
-  let heart = document.createElement("div");
-  heart.classList.add("heart");
-  heart.innerHTML = "💖";
-  heart.style.left = Math.random() * 100 + "vw";
-  heart.style.fontSize = (10 + Math.random()*20) + "px";
-  document.body.appendChild(heart);
-
-  setTimeout(() => heart.remove(), 6000);
-}, 300);
+// hearts
+setInterval(()=>{
+ let h=document.createElement("div");
+ h.className="heart";
+ h.innerHTML="❤";
+ h.style.left=Math.random()*100+"vw";
+ h.style.animationDuration=3+Math.random()*5+"s";
+ document.body.appendChild(h);
+ setTimeout(()=>h.remove(),8000);
+},400);
 </script>
 
 </body>
