@@ -3,363 +3,306 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Shivani ❤️</title>
+<title>For Shivani 💖</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
+*{margin:0;padding:0;box-sizing:border-box}
 
 body{
   font-family:'Poppins',sans-serif;
-  background: radial-gradient(circle at top right,#ff4e88 0%,transparent 30%),
-              radial-gradient(circle at bottom left,#7b5cff 0%,transparent 30%),
-              linear-gradient(135deg,#0a0a23,#1a1a3d,#0f0c29);
-  color:#fff;
+  background:#0b0b0f;
+  color:#eee;
   overflow-x:hidden;
 }
 
-/* glow */
-body::before, body::after{
+/* GLOW BG */
+body::before{
   content:"";
   position:fixed;
-  width:400px;height:400px;
+  width:500px;
+  height:500px;
+  background:radial-gradient(circle,#ff1493,transparent);
+  top:-100px;
+  left:-100px;
   filter:blur(120px);
-  z-index:-1;
+  opacity:0.4;
 }
-body::before{background:#ff5ea8;top:-100px;right:-100px;}
-body::after{background:#7b5cff;bottom:-100px;left:-100px;}
 
-/* hearts */
+/* HEARTS */
 .heart{
   position:fixed;
-  bottom:-50px;
-  color:#ff9ecb;
-  animation:floatUp linear infinite;
+  bottom:-10px;
+  color:#ff1493;
+  animation:floatUp 6s linear infinite;
 }
 @keyframes floatUp{
-  to{transform:translateY(-110vh);opacity:0;}
+  0%{transform:translateY(0);opacity:0}
+  50%{opacity:1}
+  100%{transform:translateY(-100vh);opacity:0}
 }
 
-/* layout */
-section{
-  min-height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding:40px;
+/* HERO */
+.hero{
+  text-align:center;
+  padding:100px 20px;
+}
+.hero h1{
+  font-size:3.5rem;
+  font-family:'Playfair Display',serif;
+  color:#ff4da6;
 }
 
-.glass{
+/* SECTION */
+.section{
+  padding:60px 20px;
   max-width:900px;
-  width:100%;
-  background:rgba(255,255,255,0.08);
-  backdrop-filter:blur(20px);
-  padding:35px;
-  border-radius:25px;
-  box-shadow:0 20px 60px rgba(0,0,0,0.5);
-  border:1px solid rgba(255,255,255,0.15);
-}
-
-/* headings */
-h1{
-  text-align:center;
-  font-size:2.8rem;
-  color:#ffd6e8;
-  text-shadow:0 0 20px rgba(255,94,168,0.7);
-}
-h2{
-  text-align:center;
-  margin-bottom:15px;
-  color:#ffd6e8;
-}
-
-p{
-  text-align:center;
-  line-height:1.8;
-  margin-top:10px;
-}
-
-/* typing */
-.typing{
-  margin-top:20px;
-  min-height:120px;
-  white-space:pre-line;
-}
-.cursor{
-  display:inline-block;
-  width:2px;
-  background:#fff;
-  animation:blink 1s infinite;
-}
-@keyframes blink{50%{opacity:0;}}
-
-/* music */
-.music{
-  margin-top:25px;
-  text-align:center;
-}
-button{
-  background:linear-gradient(135deg,#ff5ea8,#ff8cc6);
-  border:none;
-  padding:12px 25px;
-  border-radius:30px;
-  color:white;
-  cursor:pointer;
-  font-weight:600;
-  box-shadow:0 10px 30px rgba(255,94,168,0.5);
-}
-button:hover{
-  transform:scale(1.08);
-}
-
-input[type=range]{
-  width:220px;
-  margin-top:10px;
-}
-
-.time{
-  font-size:0.9rem;
-  margin-top:5px;
-  color:#ddd;
-}
-
-/* cards */
-.cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:15px;
-  margin-top:20px;
+  margin:auto;
 }
 
 .card{
-  background:rgba(255,255,255,0.06);
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(12px);
+  padding:25px;
+  border-radius:20px;
+  margin-top:20px;
+  transition:0.3s;
+  border:1px solid rgba(255,255,255,0.1);
+}
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 0 25px rgba(255,20,147,0.4);
+}
+
+/* PLAYER */
+.player{
+  background:#111;
   padding:20px;
   border-radius:15px;
   text-align:center;
-  transition:0.3s;
 }
-.card:hover{
-  transform:translateY(-5px);
-}
-.hidden{display:none;}
 
-/* nav */
-.nav{
-  position:fixed;
-  top:10px;
-  right:10px;
-  z-index:100;
+.progress{
+  width:100%;
+  height:6px;
+  background:#333;
+  margin:10px 0;
+  border-radius:5px;
+  cursor:pointer;
 }
-.nav a{
+
+.progress-bar{
+  height:100%;
+  width:0%;
+  background:#ff1493;
+}
+
+.controls button{
   margin:5px;
-  padding:8px 14px;
-  background:rgba(255,255,255,0.1);
-  border-radius:20px;
+  padding:10px 14px;
+  border:none;
+  background:#ff1493;
   color:white;
-  text-decoration:none;
-  font-size:0.9rem;
+  border-radius:8px;
+  cursor:pointer;
 }
 
-/* shayari */
-.shayari{
-  font-style:italic;
-  font-size:1.1rem;
-  color:#ffd6e8;
-  line-height:2;
+.active{
+  color:#ff1493;
+  font-weight:bold;
 }
 
-/* final */
-.final{
-  font-size:1.3rem;
-  color:#ffd6e8;
-  margin-top:20px;
+footer{
   text-align:center;
+  padding:40px;
+  color:#aaa;
 }
 </style>
 </head>
 
 <body>
 
-<div class="nav">
-<a href="#hero">Home</a>
-<a href="#why">Why</a>
-<a href="#mem">Memories</a>
-<a href="#secret">Secrets</a>
-<a href="#shayari">Shayari</a>
-<a href="#end">End</a>
-</div>
+<!-- HEARTS -->
+<script>
+setInterval(()=>{
+  const heart=document.createElement("div");
+  heart.className="heart";
+  heart.innerText="💖";
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.fontSize=(Math.random()*20+10)+"px";
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(),6000);
+},400);
+</script>
 
 <!-- HERO -->
-<section id="hero">
-<div class="glass">
-<h1>For Shivani ❤️</h1>
-<p>This is not just a website… it’s something I made only for you.</p>
-
-<div id="typing" class="typing"></div>
-
-<div class="music">
-<div>🎵 Darkhaast - Arijit Singh</div>
-<button onclick="toggleMusic()">Play / Pause</button><br>
-
-<input type="range" id="progress" value="0">
-<div class="time" id="time">00:00 / 00:00</div>
-
-<label>Volume</label><br>
-<input type="range" id="volume" value="35">
-</div>
-
-<audio id="song" src="darkhaast.mp3"></audio>
-</div>
+<section class="hero">
+  <h1>Shivani 💖</h1>
+  <p id="typing"></p>
 </section>
 
-<!-- WHY -->
-<section id="why">
-<div class="glass">
-<h2>Why You Matter</h2>
-<p>
-You’re not just someone I talk to.  
-You’re someone who actually listens.  
-In a world where people pretend to care,  
-you make it feel real.  
-That’s rare… and that’s why you matter.
-</p>
-</div>
+<!-- MUSIC -->
+<section class="section">
+  <h2>Our Songs 🎶</h2>
+
+  <div class="player">
+    <h3 id="song-title"></h3>
+
+    <div class="progress" onclick="setProgress(event)">
+      <div class="progress-bar" id="progress-bar"></div>
+    </div>
+
+    <p id="time">0:00 / 0:00</p>
+
+    <div class="controls">
+      <button onclick="prevSong()">⏮</button>
+      <button onclick="togglePlay()">▶ / ⏸</button>
+      <button onclick="nextSong()">⏭</button>
+    </div>
+
+    <div id="song-list"></div>
+  </div>
 </section>
 
-<!-- MEMORIES -->
-<section id="mem">
-<div class="glass">
-<h2>Memories</h2>
-<p>🌅 That 6AM good morning… I still remember it.</p>
-<p>💬 You listened when no one did.</p>
-<p>❤️ That’s why this exists.</p>
-</div>
+<!-- NEW SECTION 1 -->
+<section class="section">
+  <h2>A Message For You</h2>
+  <div class="card">
+    You came into my life quietly…<br><br>
+    but somehow became one of the most important parts of it.<br><br>
+    I don’t say it much… but I notice everything.
+  </div>
 </section>
 
-<!-- SECRETS -->
-<section id="secret">
-<div class="glass">
-<h2>Click When You Need Me</h2>
-
-<div class="cards">
-<div class="card">
-<button onclick="toggle(0)">Sad?</button>
-<p class="hidden">You matter more than you think.</p>
-</div>
-
-<div class="card">
-<button onclick="toggle(1)">Miss me?</button>
-<p class="hidden">Read this page again slowly.</p>
-</div>
-
-<div class="card">
-<button onclick="toggle(2)">Doubt?</button>
-<p class="hidden">You are stronger than your doubts.</p>
-</div>
-</div>
-
-</div>
+<!-- NEW SECTION 2 -->
+<section class="section">
+  <h2>What I Never Say</h2>
+  <div class="card">
+    Sometimes I don’t express things properly…<br><br>
+    but your presence really matters to me more than I show.<br><br>
+    And honestly… I don’t want to lose this bond.
+  </div>
 </section>
 
-<!-- SHAYARI -->
-<section id="shayari">
-<div class="glass">
-<h2>Something I Wanted To Say...</h2>
-
-<p class="shayari">
-"तुम खास हो ये बताने के लिए  
-शब्द कभी काफी नहीं होंगे…  
-बस इतना समझ लो,  
-तुम्हारा होना ही  
-किसी के दिन को बेहतर बना देता है।"
-</p>
-
-</div>
+<!-- FINAL -->
+<section class="section">
+  <h2>Final Note</h2>
+  <div class="card">
+    This isn’t something big…<br><br>
+    but it’s real.<br><br>
+    And you are important to me. 💫
+  </div>
 </section>
 
-<!-- END -->
-<section id="end">
-<div class="glass">
-<h2>Before This Ends</h2>
-<p>This is not just a website.</p>
-<p>It’s a small piece of how much you matter.</p>
-<p class="final">I’ll always be here ❤️</p>
-</div>
-</section>
+<footer>
+  Made with Love by Lalit
+</footer>
 
 <script>
-// typing
-const text=[
-"Hey Shivani...",
-"I didn’t make this because I had to.",
-"I made this because you deserve something real.",
-"You listen when no one does.",
-"And that matters more than you think."
-];
-let i=0,j=0,txt="";
+// TYPING
+const text="Hey Shivani… you became important faster than I expected.";
+let i=0;
 function type(){
- if(i<text.length){
-  if(j<text[i].length){
-   txt+=text[i][j++];
-   document.getElementById("typing").innerHTML=txt+"<span class='cursor'></span>";
-   setTimeout(type,40);
-  }else{txt+="\n";i++;j=0;setTimeout(type,400);}
- }
+  if(i<text.length){
+    document.getElementById("typing").innerHTML+=text.charAt(i);
+    i++;
+    setTimeout(type,40);
+  }
 }
 type();
 
-// music
-const song=document.getElementById("song");
-const progress=document.getElementById("progress");
-const volume=document.getElementById("volume");
-const time=document.getElementById("time");
+// SONGS
+const songs=[
+  {title:"Darkhaast",file:"darkhaast.mp3"},
+  {title:"Bairan",file:"Bairan.mp3"},
+  {title:"Aa Chalke Tujhe",file:"song3.mp3"},
+  {title:"Tum Jo Aaye",file:"song4.mp3"},
+  {title:"Itna na mujhse tu pyaar badha",file:"song5.mp3"},
+];
 
-song.volume=0.35;
+let index=0;
+const audio=new Audio();
 
-function toggleMusic(){
- if(song.paused) song.play();
- else song.pause();
+function loadSong(){
+  audio.src=songs[index].file;
+  document.getElementById("song-title").innerText=songs[index].title;
+  highlightSong();
 }
 
-volume.oninput=e=>song.volume=e.target.value/100;
-
-song.ontimeupdate=()=>{
- if(song.duration){
-  progress.value=(song.currentTime/song.duration)*100;
-
-  let m=Math.floor(song.currentTime/60);
-  let s=Math.floor(song.currentTime%60);
-  let dm=Math.floor(song.duration/60);
-  let ds=Math.floor(song.duration%60);
-
-  if(s<10)s="0"+s;
-  if(ds<10)ds="0"+ds;
-
-  time.innerText=`${m}:${s} / ${dm}:${ds}`;
- }
-};
-
-progress.oninput=()=>{
- song.currentTime=(progress.value/100)*song.duration;
-};
-
-// secrets
-function toggle(i){
- let el=document.querySelectorAll(".hidden");
- el[i].style.display=el[i].style.display=="block"?"none":"block";
+// PLAY
+function togglePlay(){
+  if(audio.paused) audio.play();
+  else audio.pause();
 }
 
-// hearts
-setInterval(()=>{
- let h=document.createElement("div");
- h.className="heart";
- h.innerHTML="❤";
- h.style.left=Math.random()*100+"vw";
- h.style.animationDuration=3+Math.random()*5+"s";
- document.body.appendChild(h);
- setTimeout(()=>h.remove(),8000);
-},400);
+// NEXT
+function nextSong(){
+  index=(index+1)%songs.length;
+  loadSong();
+  audio.play();
+}
+
+// PREV
+function prevSong(){
+  index=(index-1+songs.length)%songs.length;
+  loadSong();
+  audio.play();
+}
+
+// AUTO NEXT
+audio.addEventListener("ended",nextSong);
+
+// PROGRESS
+audio.addEventListener("timeupdate",()=>{
+  const progress=(audio.currentTime/audio.duration)*100;
+  document.getElementById("progress-bar").style.width=progress+"%";
+
+  function format(t){
+    const m=Math.floor(t/60);
+    const s=Math.floor(t%60).toString().padStart(2,'0');
+    return `${m}:${s}`;
+  }
+
+  document.getElementById("time").innerText=
+    `${format(audio.currentTime)} / ${format(audio.duration||0)}`;
+});
+
+// SEEK
+function setProgress(e){
+  const width=e.currentTarget.clientWidth;
+  const clickX=e.offsetX;
+  audio.currentTime=(clickX/width)*audio.duration;
+}
+
+// LIST
+function renderList(){
+  const list=document.getElementById("song-list");
+  list.innerHTML="";
+  songs.forEach((s,i)=>{
+    const el=document.createElement("div");
+    el.innerText=s.title;
+    el.style.cursor="pointer";
+    el.onclick=()=>{
+      index=i;
+      loadSong();
+      audio.play();
+    };
+    list.appendChild(el);
+  });
+}
+
+function highlightSong(){
+  const list=document.getElementById("song-list").children;
+  for(let i=0;i<list.length;i++){
+    list[i].classList.remove("active");
+  }
+  list[index].classList.add("active");
+}
+
+// INIT
+loadSong();
+renderList();
 </script>
 
 </body>
